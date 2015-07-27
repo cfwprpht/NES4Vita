@@ -4,6 +4,7 @@
 #include <string.h>
 #include <math.h>
 #include <malloc.h>
+#include <time.h>
 
 #include <psp2/ctrl.h>
 #include <psp2/touch.h>
@@ -16,6 +17,7 @@
 #include "../nes_emu/Nes_Emu.h"
 #include "abstract_file.h"
 #include "file_chooser.h"
+#include "font.h"
 #include <vita2d.h>
 
 PSP2_MODULE_INFO(0, 0, "NES4Vita");
@@ -31,6 +33,9 @@ static int scale;
 
 unsigned int *framebuffer;
 vita2d_texture *framebufferTex;
+
+clock_t last_render_time;
+char fps_string[11];
 
 static uint8_t nes_width = 160;
 static uint8_t nes_height = 102;
@@ -68,6 +73,17 @@ unsigned update_input(SceCtrlData *pad)
 		res |= (keys_down & bindmap[bind].psp2) ? bindmap[bind].nes : 0;
 
 	return res;
+}
+
+void show_fps()
+{
+	clock_t now = clock();
+	float curr_fps = 1000000.0F / ((float)now - (float)last_render_time);
+
+	sprintf(fps_string, "FPS: %d", (int)curr_fps);
+	font_draw_stringf(10, 10, 0xFFFFFFFF, fps_string);
+
+	last_render_time = now;
 }
 
 int run_emu(const char *path)
@@ -120,6 +136,7 @@ int run_emu(const char *path)
 		vita2d_clear_screen();
 
 		vita2d_draw_texture_scale(tex, pos_x, pos_y, scale, scale);
+		show_fps();
 
 		vita2d_end_drawing();
 		vita2d_swap_buffers();
