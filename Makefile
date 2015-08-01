@@ -1,8 +1,3 @@
-#
-# Copyright (c) 2015 Sergi Granell (xerpi)
-# based on Cirne's vita-toolchain test Makefile
-#
-
 TARGET		:= NES4Vita
 NES_EMU		:= nes_emu
 FEX			:= fex
@@ -33,22 +28,17 @@ CC      = $(PREFIX)-gcc
 CXX		= $(PREFIX)-g++
 READELF = $(PREFIX)-readelf
 OBJDUMP = $(PREFIX)-objdump
-CFLAGS  = -Wall -specs=psp2.specs -I$(NES_EMU) -I$(FEX)
-CXXFLAGS = $(CFLAGS) $(DEFINES) -O2 -fno-unwind-tables -fno-rtti -fno-exceptions -Wno-deprecated -Wno-comment -Wno-sequence-point -std=c++11
+CFLAGS  = -Wall -O2 -specs=psp2.specs -I$(NES_EMU) -I$(FEX)
+CXXFLAGS = $(CFLAGS) $(DEFINES) -fno-unwind-tables -fno-rtti -fno-exceptions -Wno-deprecated -Wno-comment -Wno-sequence-point -std=c++11
 ASFLAGS = $(CFLAGS)
 
-all: $(TARGET).velf
+all: $(TARGET).elf
 
-$(TARGET).velf: $(TARGET).elf
+$(TARGET).elf: homebrew.elf
 	psp2-fixup -q -S $< $@
 
-$(TARGET).elf: $(OBJS)
+homebrew.elf: $(OBJS)
 	$(CC) $(CFLAGS) $^ $(LIBS) -o $@
 
 clean:
-	@rm -rf $(TARGET).elf $(TARGET).velf $(OBJS)
-
-copy: $(TARGET).velf
-	@cp $(TARGET).velf ~/shared/vitasample.elf
-	@echo "Copied!"
-
+	@rm -rf $(TARGET).elf homebrew.elf $(OBJS)
