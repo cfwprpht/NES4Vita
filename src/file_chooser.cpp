@@ -121,8 +121,8 @@ static void dir_up(char *path)
 		size_t s = len_in - (pch - path);
 		memset(pch, '\0', s);
 	}
-	if (strcmp(path, "cache0:/") < 0) {
-		strcpy(path, "cache0:/");
+	if (strcmp(path, "cache0:VitaDefilerClient/Documents/") < 0) {
+		strcpy(path, "cache0:VitaDefilerClient/Documents/");
 	}
 }
 
