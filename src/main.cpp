@@ -156,7 +156,6 @@ int main()
 	printf("Starting NES4Vita by SMOKE");
 
 	vita2d_init();
-	printf("vita2d initialized");
 
 	while (1) {
 		emu = new Nes_Emu();
