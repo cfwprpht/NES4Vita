@@ -13,12 +13,13 @@
 #include <psp2/types.h>
 #include <psp2/moduleinfo.h>
 #include <psp2/kernel/processmgr.h>
+#include <vita2d.h>
 
 #include "../nes_emu/Nes_Emu.h"
 #include "abstract_file.h"
 #include "file_chooser.h"
 #include "font.h"
-#include <vita2d.h>
+#include "audio.h"
 
 PSP2_MODULE_INFO(0, 0, "NES4Vita");
 
@@ -90,6 +91,8 @@ int run_emu(const char *path)
 {
 	SceCtrlData pad;
 	unsigned int joypad1, joypad2;
+	
+	setup_audio();
 
 	emu->set_sample_rate(44100);
 	emu->set_equalizer(Nes_Emu::nes_eq);

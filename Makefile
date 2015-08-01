@@ -18,7 +18,7 @@ CFILES   := $(foreach dir,$(SOURCES), $(wildcard $(dir)/*.c))
 CXXFILES := $(foreach dir,$(SOURCES), $(wildcard $(dir)/*.cpp))
 OBJS     := $(CFILES:.c=.o) $(BUILD_APP) $(CXXFILES:.cpp=.o)
 
-LIBS = -lSceDisplay_stub -lSceGxm_stub -lSceCtrl_stub -lc_stub -lm_stub -lvita2d
+LIBS = -lSceDisplay_stub -lSceGxm_stub -lSceCtrl_stub -lc_stub -lm_stub -lvita2d -lSceAudio_stub
 
 DEFINES	= -Wall -Wno-multichar -Wno-unused-variable -Wno-sign-compare -Wno-strict-aliasing
 
@@ -28,7 +28,7 @@ CC      = $(PREFIX)-gcc
 CXX		= $(PREFIX)-g++
 READELF = $(PREFIX)-readelf
 OBJDUMP = $(PREFIX)-objdump
-CFLAGS  = -Wall -O2 -specs=psp2.specs -I$(NES_EMU) -I$(FEX)
+CFLAGS  = -Wall -O2 -specs=psp2.specs -I$(NES_EMU) -I$(FEX) -I$(SOURCES)
 CXXFLAGS = $(CFLAGS) $(DEFINES) -fno-unwind-tables -fno-rtti -fno-exceptions -Wno-deprecated -Wno-comment -Wno-sequence-point -std=c++11
 ASFLAGS = $(CFLAGS)
 
