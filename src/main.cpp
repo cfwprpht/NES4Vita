@@ -15,11 +15,10 @@
 #include <psp2/kernel/processmgr.h>
 #include <vita2d.h>
 
-#include "../nes_emu/Nes_Emu.h"
+#include "Nes_Emu.h"
 #include "abstract_file.h"
 #include "file_chooser.h"
 #include "font.h"
-#include "audio.h"
 
 PSP2_MODULE_INFO(0, 0, "NES4Vita");
 
