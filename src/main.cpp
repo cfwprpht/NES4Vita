@@ -1,6 +1,6 @@
 #include "main.h"
 
-PSP2_MODULE_INFO(0, 0, "NES4Vita");
+PSP2_MODULE_INFO(0, 0, "NES4Vita v1.0");
 
 unsigned update_input(SceCtrlData *pad)
 {
