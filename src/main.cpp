@@ -42,7 +42,7 @@ int run_emu(const char *path)
 	Auto_File_Reader freader(path);
 	emu->load_ines(freader);
 
-	int scale = 2;
+	double scale = 2.5;
 	int pos_x = SCREEN_W/2 - (Nes_Emu::image_width/2)*scale;
 	int pos_y = SCREEN_H/2 - (Nes_Emu::image_height/2)*scale;
 

@@ -10,9 +10,8 @@ BUILD_APP=$(NES_EMU)/abstract_file.o $(NES_EMU)/apu_state.o $(NES_EMU)/Blip_Buff
 	$(NES_EMU)/Multi_Buffer.o $(NES_EMU)/Nes_Apu.o $(NES_EMU)/Nes_Buffer.o \
 	$(NES_EMU)/Nes_Cart.o $(NES_EMU)/Nes_Core.o $(NES_EMU)/Nes_Cpu.o $(NES_EMU)/nes_data.o \
 	$(NES_EMU)/Nes_Effects_Buffer.o $(NES_EMU)/Nes_Emu.o $(NES_EMU)/Nes_State.o \
-	$(NES_EMU)/Nes_File.o $(NES_EMU)/Nes_Film.o $(NES_EMU)/Nes_Film_data.o \
-	$(NES_EMU)/Nes_Film_Packer.o $(NES_EMU)/Nes_Fme7_Apu.o $(NES_EMU)/Nes_Mapper.o \
-	$(NES_EMU)/nes_mappers.o $(NES_EMU)/Nes_Mmc1.o $(NES_EMU)/Nes_Mmc3.o \
+	$(NES_EMU)/Nes_File.o $(NES_EMU)/Nes_Film_Packer.o $(NES_EMU)/Nes_Fme7_Apu.o \
+	$(NES_EMU)/Nes_Mapper.o $(NES_EMU)/nes_mappers.o $(NES_EMU)/Nes_Mmc1.o $(NES_EMU)/Nes_Mmc3.o \
 	$(NES_EMU)/Nes_Namco_Apu.o $(NES_EMU)/Nes_Oscs.o $(NES_EMU)/Nes_Ppu.o \
 	$(NES_EMU)/Nes_Ppu_Impl.o $(NES_EMU)/Nes_Ppu_Rendering.o $(NES_EMU)/nes_util.o \
 	$(NES_EMU)/Nes_Vrc6_Apu.o $(FEX)/Data_Reader.o $(FEX)/blargg_errors.o
